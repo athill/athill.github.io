@@ -12,7 +12,7 @@ tags:
 
 What does this do?
 
-	`find . -type f -exec chmod 644 {} \;`
+	find . -type f -exec chmod 644 {} \;
 
 In [posix](https://en.wikipedia.org/wiki/POSIX) systems (unix, linux, osx, cygwin, etc.), `find` is a powerful command. You give it a starting folder/directory and a set of filters and it returns all the files and/or directories in the parent directory that match the filters. For example, `find somedir -type f -name *.pdf` would return a list of all the files in the "somedir" directory that end in ".pdf". `find . -type f` means "Give me all the files in the current directory, [recursively](http://www.merriam-webster.com/dictionary/recursive) (`.` means the current directory)."
 
