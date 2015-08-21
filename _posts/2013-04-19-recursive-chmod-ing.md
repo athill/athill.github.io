@@ -11,6 +11,6 @@ tags:
 ---
 From <a href="http://chrisgilligan.com/wordpress/chmod-recursive-files-only-directories-type/" target="_blank">http://chrisgilligan.com/wordpress/chmod-recursive-files-only-directories-type/</a>
 
-`find . -type d -exec <strong>chmod</strong> 755 {} \;`
+	find . -type d -exec chmod 755 {} \;
 
-`find . -type f -exec <strong>chmod</strong> 644 {} \;`
+	find . -type f -exec chmod 644 {} \;
