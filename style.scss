@@ -9,6 +9,20 @@
 @import "variables";
 // Syntax highlighting @import is at the bottom of this file
 
+
+@import url('https://fonts.googleapis.com/css?family=VT323'); 
+
+/**
+ * mixins 
+ */
+
+@mixin terminal {
+  background-color: black;
+  color: #0A0;
+  font-family: $terminal;
+
+}
+
 /**************/
 /* BASE RULES */
 /**************/
@@ -18,7 +32,7 @@ html {
 }
 
 body {
-	background: $white;
+	background: $white; 
   font: 18px/1.4 $helvetica;
   color: $darkGray;
 }
@@ -52,7 +66,13 @@ h1 {
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 32px;
+  @include terminal;
+  padding-left: 1em;
+  margin: 0;
+  &::before {
+    content: '$ '
+  }
 }
 
 h3 {
@@ -151,7 +171,7 @@ img {
 //
 
 .wrapper-masthead {
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 .masthead {
@@ -241,6 +261,7 @@ nav {
 // .main
 //
 
+
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $lightGray;
@@ -252,6 +273,10 @@ nav {
 }
 
 .post {
+  @include terminal;
+  border-radius: 1em;
+  overflow: hidden;
+  margin-top: 1em;
   blockquote {
     margin: 1.8em .8em;
     border-left: 2px solid $gray;
@@ -261,13 +286,35 @@ nav {
     font-style: italic;
   }
 
+  .header {
+
+
+    h1 {
+
+      font-family: $terminal;
+      font-size: 1.2em;
+      background-color: lightGray;
+      padding: 0 0 0 1em;
+      margin: 0;
+    }
+
+    .icon {
+      display: none;
+    }
+  }
+
+  .entry {
+    
+    padding: 0.5em;
+  }
+
   .comments {
     margin-top: 10px;
   }
 
   .read-more {
-    text-transform: uppercase;
     font-size: 15px;
+    padding-left: 1em;
   }
 }
 
