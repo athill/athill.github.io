@@ -1,0 +1,43 @@
+#!/bin/bash
+
+## validate args
+if [ "$#" -lt 1 ] || [ "$#" -gt 1 ]; then
+  echo "Usage: post <name>"
+  exit 1
+fi
+
+title=$1
+## https://gist.github.com/oneohthree/f528c7ae1e701ad990e6
+# use -E for osx, -r for linux
+slug=`echo "$title" | iconv -t ascii//TRANSLIT | sed -E s/[^a-zA-Z0-9]+/-/g | sed -E s/^-+\|-+$//g | tr A-Z a-z`
+filename=`date +%Y-%m-%d`'-'$slug'.md'
+permalink='/'`date +%Y/%m/%d`'/'$slug'/'
+
+read -r -d '' CONTENT << Content
+---
+title: $title
+author: andy
+layout: post
+permalink: $permalink
+categories:
+  - cat1
+tags:
+  - tag1
+---
+Content
+
+echo "$CONTENT" > '_posts/'$filename
+
+# build file name from current date and sluggified name
+# Fill out metadata from template/input
+# | title: PHP Anonymous Functions
+# | author: andy
+# | layout: post
+# | permalink: /2011/10/11/php-anonymous-functions/
+# | categories:
+# |   - PHP
+# | tags:
+# |   - lambda
+# |   - php
+# | ---
+# generate file
