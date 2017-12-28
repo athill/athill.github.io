@@ -1,5 +1,6 @@
 ---
 layout: default
+regenerate: true
 ---
 <h2>codeblog</h2>
 
@@ -9,10 +10,9 @@ layout: default
 
       <div class="header">
         <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-  	    <div class="buttons">
-  	    	<div class="icon icon-x">X</div>
-  	    	<div class="icon icon-underscore">_</div>
-  	    </div>
+        <div class="date">
+          {{ post.date | date: "%Y-%m-%d" }}
+        </div>
       </div>    
 
       <div class="entry">
